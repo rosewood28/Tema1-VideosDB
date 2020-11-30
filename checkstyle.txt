@@ -1,0 +1,4 @@
+Starting audit...
+[ERROR] C:\Users\User\Desktop\Tema-POO-2020\.\src\main\Main.java:14:8: Unused import - org.json.JSONObject. [UnusedImports]
+Audit done.
+Checkstyle ends with 1 errors.
