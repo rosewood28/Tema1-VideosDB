@@ -1,4 +1,5 @@
 Starting audit...
-[ERROR] C:\Users\User\Desktop\Tema-POO-2020\.\src\main\Main.java:14:8: Unused import - org.json.JSONObject. [UnusedImports]
+[ERROR] C:\Users\User\Desktop\Tema-POO-2020\.\src\commands\View.java:46:17: '}' at column 17 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally). [RightCurly]
+[ERROR] C:\Users\User\Desktop\Tema-POO-2020\.\src\main\Main.java:15:8: Unused import - org.json.JSONObject. [UnusedImports]
 Audit done.
-Checkstyle ends with 1 errors.
+Checkstyle ends with 2 errors.

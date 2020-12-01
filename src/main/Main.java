@@ -11,6 +11,7 @@ import fileio.Input;
 import fileio.InputLoader;
 import fileio.Writer;
 
+import commands.View;
 import org.json.JSONObject;
 import org.json.simple.JSONArray;
 
@@ -104,6 +105,16 @@ public final class Main {
                     }
                 }
 
+
+
+                if (action.getType().equals("view")) {
+                    View view = new View();
+                    int views = view.add(input, action);
+                    jsonObject = fileWriter.writeFile(action.getActionId(), null,
+                            "success -> " + action.getTitle()
+                                    + " was viewed with total views of " + views);
+                    arrayResult.add(jsonObject);
+                }
             }
         }
 
