@@ -12,6 +12,7 @@ import fileio.InputLoader;
 import fileio.Writer;
 
 import commands.View;
+import commands.Rating;
 import org.json.JSONObject;
 import org.json.simple.JSONArray;
 
@@ -80,7 +81,6 @@ public final class Main {
         org.json.simple.JSONObject jsonObject;
         //TODO add here the entry point to your implementation
 
-        //System.out.println(input.getCommands());
         for (ActionInputData action : input.getCommands()) {
             if (action.getActionType().equals("command")) {
                 if (action.getType().equals("favorite")) {
@@ -105,8 +105,6 @@ public final class Main {
                     }
                 }
 
-
-
                 if (action.getType().equals("view")) {
                     View view = new View();
                     int views = view.add(input, action);
@@ -115,6 +113,30 @@ public final class Main {
                                     + " was viewed with total views of " + views);
                     arrayResult.add(jsonObject);
                 }
+
+                if (action.getType().equals("rating")) {
+                    Rating rating = new Rating();
+                    int messageCode = rating.test(input, action);
+                    if (messageCode == 0) { //exista deja in lista de ratings
+                        jsonObject = fileWriter.writeFile(action.getActionId(), null,
+                                "error -> " + action.getTitle()
+                                        + " is already in rating list");
+                        arrayResult.add(jsonObject);
+                    }
+                    if (messageCode == 1) { //adaug in lista
+                        jsonObject = fileWriter.writeFile(action.getActionId(), null,
+                                "success -> " + action.getTitle()
+                                        + " was rated with " + action.getGrade()
+                                        + " by " + action.getUsername());
+                        arrayResult.add(jsonObject);
+                    }
+                    if (messageCode == 2) {
+                        jsonObject = fileWriter.writeFile(action.getActionId(), null,
+                                "error -> " + action.getTitle() + " is not seen");
+                        arrayResult.add(jsonObject);
+                    }
+                }
+
             }
         }
 

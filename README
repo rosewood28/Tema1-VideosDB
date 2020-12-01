@@ -1,38 +1,18 @@
-Object Oriented Programming Course
-Homework - VideosDB
+Stan Sabina - 321CD
 
-November 2020
+Pentru a accesa in mod corespunzator functiile de implementat, am parcurs in main.java lista de actiuni. Apoi, am
+verificat tipul actiunii. De exemplu, daca tipul este commmands voi verifica si ce tip are comanda, de exemplu,
+favorites, caz in care voi apela aceasta metoda. Rezultatul il voi scrie intr-un jsonObject pe care il voi adauga
+in arrayResult.
 
-# Info
-https://ocw.cs.pub.ro/courses/poo-ca-cd/teme/tema
+Pentru comenzi am creat un nou package in care am introdus cele trei clase.
 
-# About the code
+In favorites am cautat userul comenzii in lista de useri, respectiv videoul comenzii in lista de filme si seriale. Apoi,
+verific daca videoul se afla in istoricul userului si intorc eroare daca nu. Daca se afla in istoric, verific ca
+videoul sa nu fie deja in lista si intorc eroare daca se afla. Altfel, il adaug in lista de favorites.
 
-We provide the input tests, the logic that parses them and the checker that runs them.
+In view am procedat similar si am adaugat in lista doar filmele care nu existau deja in history. Daca erau deja in lista,
+incrementam numarul vizualizarilor.
 
-* test_db - contains the tests in JSON format
-* src
-   * checker - the checker's sources including the checkstyle necessary files, not to be modified
-   * fileio - classes for parsing the input files, not to be modified
-   * common, utils
-        * contain utility classes with constants and static methods
-        * you can add your own functionality in the existing classes or add new classes as well
-   * actor
-        * contains an enum for the types of awards an actor can have - do not modify it
-        * you can add here your actor related classes
-   * entertainment
-        * contains an enum for the supported video genres - do not modify it
-        * class for representing a Season of a tv show - do not modify it
-        * you can add here your entertainment related classes
-
-We encourage you to organize your implementation in packages based on the functionality their classes offer. Try to keep
-your code modular, readable and documented.
-
-# Testing
-
-The Main class runs the checker on your implementation. Add the entry point to your implementation in it.
-
-Run Main to test your implementation from the IDE or from command line.
-
-Run the main method from Test class with the name of the input file from the command line and the result will be written
-to the out.txt file. Thus, you can compare this result with ref.
+In rating am tratat aceleasi cazuri ca in favorites. Pentru filme adaug titlul filmului si ratingul in map-ul userului.
+Pentru seriale, adaug in lista de ratings a sezoanelor ratingul si adaug serialul in map-ul userului.

@@ -18,7 +18,7 @@ public class View {
      */
     public int add(final Input input, final ActionInputData action) {
         for (UserInputData user : input.getUsers()) {
-            if (user.getUsername().equals(action.getUsername())) { //caut user-ul cautat in actiune
+            if (user.getUsername().equals(action.getUsername())) { //caut userul cautat in actiune
                 for (MovieInputData movie : input.getMovies()) { //caut in lista de filme
                     look(action, user, movie.getTitle());
                 }
